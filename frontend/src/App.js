@@ -19,9 +19,14 @@ function App() {
       <div>
         <div className="bg-[#245DDA] shadow-inner w-full p-2 rounded-t-xl flex justify-between">
           <h1 className="titulo-chat  text-white text-lg ml-2">Chat room</h1>
-          <span class="material-symbols-outlined flex justify-center items-center rounded-md bg-red-700 hover:bg-red-800 cursor-pointer border-2 text-white border-white mr-[1px]" onClick={handleRefresh}>
+          <div className='flex gap-[2px]'>
+            <span class="material-symbols-outlined flex justify-center items-center rounded-md bg-blue-500 hover:bg-blue-600 cursor-pointer border-2 text-white border-white mr-[1px]">
+              minimize
+            </span>
+            <span class="material-symbols-outlined flex justify-center items-center rounded-md bg-red-700 hover:bg-red-800 cursor-pointer border-2 text-white border-white mr-[1px]" onClick={handleRefresh}>
               close
-          </span>
+            </span>
+          </div>
         </div>
         <div className="area-chat flex flex-col items-center border-x-4 border-b-4 border-[#245DDA] bg-[#F3F3F3] p-4">
           {!username ? <Login onLogin={handleLogin} /> : <Chat username={username} />}

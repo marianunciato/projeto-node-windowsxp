@@ -60,9 +60,9 @@ const Chat = ({ username }) => {
   const getMessageStyle = (userId) => {
     console.log(userId)
     if (userId === localStorage.getItem("userId")) {
-      return { content: "bg-blue-600 border-2 border-blue-700 text-white place-self-end", title: "text-right w-full", messagetext: "text-left w-full"};
+      return { content: "bg-[#E0F9BE] border-2 border-lime-300 text-black place-self-end", title: "text-right w-full", messagetext: "text-left w-full"};
     } else {
-      return { content: "bg-lime-500 border-2 border-lime-600 text-white place-self-start", title: "text-left w-full", messagetext: "text-left w-full"};
+      return { content: "bg-[#CFEFFF] border-2 border-sky-300 text-black place-self-start", title: "text-left w-full", messagetext: "text-left w-full"};
     }
   };
 
@@ -73,9 +73,9 @@ const Chat = ({ username }) => {
           const formattedTime = format(new Date(msg.timestamp), 'HH:mm');
           return (
             <div key={index} className={`balao-mensagem flex my-1 mx-2 px-2 py-1 rounded-md w-fit max-w-96 break-all h-fit flex-wrap flex-col items-end justify-end ${getMessageStyle(msg.userId).content}`}>
-              <p className={`text-sm font-bold flex justify-self-start ${getMessageStyle(msg.userId).title}`}>{msg.username}</p>
+              {/* <p className={`text-sm font-bold flex justify-self-start ${getMessageStyle(msg.userId).title}`}>{msg.username}</p> */}
               <p className={`${getMessageStyle(msg.userId).messagetext}`}>{msg.message}</p>
-              <p className="flex text-white opacity-80 text-[13px] ml-2">{formattedTime}</p>
+              <p className="flex text-black opacity-50 text-[13px] ml-2">{formattedTime}</p>
             </div>
           );
         })}
@@ -90,7 +90,7 @@ const Chat = ({ username }) => {
           onKeyDown={(e) => e.key === 'Enter' && sendMessage()}
           className="input-mensagem w-96 h-9 px-2 py-2 border-2 border-blue-300 text-gray-600 bg-white rounded-sm"
         />
-        <button className="bg-gray-100 border-2 hover:bg-gray-200 border-blue-500 h-9 rounded-md ml-2 text-black flex justify-center items-center" onClick={sendMessage}>
+        <button className="bg-white border-2 hover:bg-gray-300 border-blue-500 h-9 rounded-md ml-2 text-black flex justify-center items-center" onClick={sendMessage}>
           <p className="px-2 font-medium">Enviar</p>
         </button>
       </div>
